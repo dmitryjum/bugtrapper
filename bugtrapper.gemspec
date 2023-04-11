@@ -6,10 +6,10 @@ require "bugtrapper/version"
 Gem::Specification.new do |spec|
   spec.name          = "bugtrapper"
   spec.version       = Bugtrapper::VERSION
-  spec.authors       = ["TODO: Write your name"]
+  spec.authors       = ["Dmitry Jum"]
   spec.email         = ["xfiler@ymail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
+  spec.summary       = %q{A Rails gem that catches exceptions and sends them as requests to an external service}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
