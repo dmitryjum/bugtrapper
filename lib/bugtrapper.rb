@@ -1,4 +1,5 @@
 require "bugtrapper/version"
+require 'httparty'
 require "bugtrapper/trap_exceptions"
 
 # module Bugtrapper
