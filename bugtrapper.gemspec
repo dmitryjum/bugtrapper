@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["xfiler@ymail.com"]
 
   spec.summary       = %q{A Rails gem that catches exceptions and sends them as requests to an external service}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.description   = %q{A Rails gem that catches exceptions and sends them as requests to an external service}
   spec.homepage      = "https://github.com/dmitryjum/bugtrapper"
   spec.license       = "MIT"
 
