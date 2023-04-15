@@ -1,6 +1,6 @@
 require "bugtrapper/version"
 require 'httparty'
-require "bugtrapper/trap_exceptions"
+require_relative "bugtrapper/trap_exceptions.rb"
 
 # module Bugtrapper
 #   class Error < StandardError; end
