@@ -1,5 +1,4 @@
-require "bugtrapper/version"
-require 'httparty'
+require_relative "bugtrapper/version.rb"
 require_relative "bugtrapper/trap_exceptions.rb"
 
 # module Bugtrapper

@@ -1,3 +1,4 @@
+require 'net/http'
 module Bugtrapper
   class TrapExceptions
     def initialize(app)
@@ -18,17 +19,10 @@ module Bugtrapper
 
     def capture_exceptions(env)
       uri = URI('http://localhost:3002/record_exceptions')
-      HTTParty.post(
-          uri,
-          body: {
-            message: @exception.message,
-            backtrace: @exception.backtrace[0..5].join("\n")
-          }.to_json
-        )
-      # Net::HTTP.post_form(uri,
-      #   message: @exception.message,
-      #   backtrace: @exception.backtrace[0..5].join("\n")
-      # )
+      Net::HTTP.post_form(uri,
+        message: @exception.message,
+        backtrace: @exception.backtrace[0..5].join("\n")
+      )
     end
 
     def source_location
