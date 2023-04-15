@@ -1,5 +1,5 @@
 require 'net/http'
-module Bugtrapper
+module BugTrapper
   class TrapExceptions
     def initialize(app)
       @app = app
