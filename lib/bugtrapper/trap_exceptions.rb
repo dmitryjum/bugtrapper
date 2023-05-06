@@ -21,7 +21,9 @@ module BugTrapper
       uri = URI('http://localhost:3002/record_exceptions')
       Net::HTTP.post_form(uri,
         message: @exception.message,
-        backtrace: @exception.backtrace[0..5].join("\n")
+        error_details: {
+          backtrace: @exception.backtrace[0..5].join("\n")
+        }
       )
     end
 
