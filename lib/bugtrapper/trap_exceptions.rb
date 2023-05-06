@@ -18,7 +18,7 @@ module BugTrapper
     private
 
     def capture_exceptions(env)
-      uri = URI('http://localhost:3002/record_exceptions')
+      uri = URI('http://localhost:3002/dev/record-exceptions')
       Net::HTTP.post_form(uri,
         message: @exception.message,
         error_details: {
