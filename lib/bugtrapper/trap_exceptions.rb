@@ -1,8 +1,11 @@
-require 'net/http'
+require 'httparty'
 module BugTrapper
+  BUGTRAPPER_API_URI = 'http://localhost:3002/dev/record-exceptions'
+
   class TrapExceptions
-    def initialize(app)
+    def initialize(app, ops = {})
       @app = app
+      @app_id = ops[:app_id]
     end
 
     def call(env)
@@ -18,12 +21,21 @@ module BugTrapper
     private
 
     def capture_exceptions(env)
-      uri = URI('http://localhost:3002/dev/record-exceptions')
-      Net::HTTP.post_form(uri,
+      body = {
         message: @exception.message,
         error_details: {
-          backtrace: @exception.backtrace[0..5].join("\n")
-        }
+          backtrace: @exception.backtrace[0..5].join("\n"),
+          environment: env.first(30).to_h
+        },
+        application_id: @app_id
+      }.to_json
+      
+      HTTParty.post(
+        BUGTRAPPER_API_URI,
+        headers: {
+          'Content-Type' => 'application/json'
+        },
+        body: body
       )
     end
 
