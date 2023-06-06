@@ -7,6 +7,9 @@ gemspec
 
 group :development, :test do
   gem 'pry'
+  gem 'rspec'
+  gem 'rack-test'
+  gem 'webmock'
 end
 
 gem 'httparty'
