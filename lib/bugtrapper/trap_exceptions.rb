@@ -12,19 +12,18 @@ module BugTrapper
       begin
         @app.call(env)
       rescue StandardError => e
-        @exception = e
-        capture_exceptions(env)
+        capture_exceptions(env, e)
         raise e
       end
     end
 
     private
 
-    def capture_exceptions(env)
+    def capture_exceptions(env, exception)
       body = {
-        message: @exception.message,
+        message: exception.message,
         error_details: {
-          backtrace: @exception.backtrace[0..5].join("\n"),
+          backtrace: exception.backtrace[0..5].join("\n"),
           environment: env.first(30).to_h
         },
         application_id: @app_id
